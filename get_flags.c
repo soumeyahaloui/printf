@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * get_flags - Calculates effective flags
+ * get_size_flags - Calculates effective flags for get_size function
  * @format: Formatted string to print's arguments
  * @i: take a parameter.
  * Return: Flags:
  */
-int get_flags(const char *format, int *i)
+int get_size_flags(const char *format, int *i)
 {
 	/* - + 0 # ' ' */
 	/* 1 2 4 8  16 */
