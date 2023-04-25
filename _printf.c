@@ -1,24 +1,11 @@
 #include "main.h"
 
-#define BUFF_SIZE 1024
+void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * print_buffer - Prints the contents of the buffer if it exists
- * @buffer: Array of chars
- * @buff_ind: Index at which to add next char, represents the length.
- */
-void print_buffer(char buffer[], int *buff_ind)
-{
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
-
-	*buff_ind = 0;
-}
-
-/**
- * _printf - Printf function
- * @format: format string
- * Return: Number of characters printed.
+ * _printf - Printf's function.
+ * @format: format
+ * Return: Printed chars
  */
 int _printf(const char *format, ...)
 {
@@ -39,6 +26,7 @@ int _printf(const char *format, ...)
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[i], 1);*/
 			printed_chars++;
 		}
 		else
@@ -62,4 +50,17 @@ int _printf(const char *format, ...)
 	va_end(list);
 
 	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length.
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
