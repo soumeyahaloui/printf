@@ -114,14 +114,4 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
-/**
- * get_precision - Evaluates the precision for printing
- * @format: Formatted string in print's arguments
- * @i: List's arguments to be printed.
- * @list: list's arguments.
- *
- * Return: Precision.
- */
-int get_precision(const char *format, int *i, va_list list);
-
 #endif /* MAIN_H */
